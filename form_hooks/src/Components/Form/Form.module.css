@@ -1,14 +1,14 @@
-form {
+.formBox {
     min-width: 400px;
     width: 40vw;
     max-width: 450px;
     padding: 2rem;
-    border-radius: 1rem ;
+    border-radius: 1rem;
     background-color: #FCF7F8;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
     margin: 2rem auto;
 }

@@ -1,22 +1,43 @@
 import React from 'react'
 import styles from './Form.module.css';
+import { useState } from 'react';
 
-
-
-
-const Form = props => {
-    const manejoSubmit = (e) => {
+let aux;
+const MostrarDato = ({ data }) => {
+    const aux = { ...data }
+    return (
+        <div className={styles.formBox}>
+            <p>Usuario: {aux.Nombres}</p>
+            <p>Apellido: {aux.Apellidos}</p>
+            <p>Email: {aux.Email}</p>
+            <p>Contrasenha: {aux.Contrasenha}</p>
+        </div>
+    )
+}
+const Form = ({ data, setData, children }) => {
+    const [enviado, setEnviado] = useState(false);
+    const manejoDatos = (e) => {
         e.preventDefault();
-        const data = new FormData(e.target);
-        data.get("Confirmar Contrasenha");
-        data.get("Contrasenha");
+        setEnviado(true);
+        aux = { ...data };
+        setData({
+            Nombres: "",
+            Apellidos: "",
+            Email: "",
+            Contrasenha: "",
+            Confirmar: "",
+        });
+        console.log(data);
     }
 
-
-    return (
-        <form className={styles} onSubmit={manejoSubmit}>
-            {props.children}
+    // setEnviado(false)
+    return (<>
+        <form className={styles.formBox} onSubmit={manejoDatos}>
+            {children}
         </form>
+        {enviado && <MostrarDato data={aux} />}
+    </>
+
     )
 }
 

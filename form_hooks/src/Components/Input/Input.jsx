@@ -1,23 +1,27 @@
 import React from 'react'
-import { useState } from 'react'
 import styles from './Input.module.css';
 
-const Input = props => {
-    const { tipo, labelText } = props;
-    const [valor, setValor] = useState("");
+const Input = ({ tipo, labelText, data, handleData }) => {
+    const manejoDatos = (e) => {
+        e.preventDefault();
+        handleData({
+            ...data,
+            [e.target.name]: e.target.value
+        })
+    }
 
     return (
         <div className={styles.boxInput}>
             <input
-                className={styles}
+                className={styles.inpt}
                 id={labelText}
                 name={labelText}
-                value={valor}
+                value={data[labelText]}
                 type={tipo}
-                onChange={(e) => setValor(e.target.value)}
+                onChange={manejoDatos}
                 required
                 placeholder={labelText} />
-            <label htmlFor={labelText}>{labelText}</label>
+            <label className={styles.lbl} htmlFor={labelText}>{labelText}</label>
         </div>
     )
 }

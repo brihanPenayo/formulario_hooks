@@ -3,7 +3,7 @@
     position: relative;
 }
 
-input::placeholder{
+input::placeholder {
     opacity: 0;
 }
 
@@ -12,7 +12,7 @@ input {
     height: 40px;
     border: 1px #275DAD solid;
     border-radius: 5px;
-    padding: 0.25rem;
+    padding: 0.5rem;
     position: relative;
     transition: border 1s ease;
 }
@@ -28,21 +28,14 @@ label {
     cursor: auto;
 }
 
-input:focus + label,
-input:valid + label
-{
+input:focus+label,
+input:not(:placeholder-shown)+label {
     font-size: 0.85rem;
     top: 0;
     background: white;
 }
 
-input:valid{
-    border: 1px solid green;
-}
-
-input:has(text){
-    font-size: 0.85rem;
-    top: 0;
-    background: white;
-    border: 2px solid red;
+input:valid {
+    border: 1px solid green !important;
+    transition: border 1.5s ease;
 }

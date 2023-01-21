@@ -1,0 +1,19 @@
+button {
+    width: 100%;
+    height: 40px;
+    background-color: #275DAD;
+    outline: 0;
+    border: 0;
+    border-radius: 5px;
+    color: white;
+    transition: background-color 250ms ease, scale, 250ms ease;
+}
+
+button:hover{
+    background-color: #1a3f77;
+    cursor: pointer;
+}
+
+button:active{
+    transform: scale(1.05);
+}
